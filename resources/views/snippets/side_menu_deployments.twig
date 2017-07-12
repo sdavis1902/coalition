@@ -1,0 +1,13 @@
+{% for project in menu_projects %}
+	<li{{ current_url == 'deployment/' ~ project.id ?' class="active"':''|raw }}>
+		<a href="{{ url('deployment/project/' ~ project.id) }}">
+			<i class="fa fa-arrow-right fa-fw"></i> <span>{{ project.name }}</span>
+			<span class="pull-right-container">
+				<small class="label pull-right bg-green">{{ project.stages.count() }}</small>
+			</span>
+		</a>
+	</li>
+{% endfor %}
+<li{{ current_url == 'deployment'?' class="active"':''|raw }}>
+	<a href="{{ url('deployment') }}"><i class="fa fa-list fa-fw"></i> Projects List</a>
+</li>

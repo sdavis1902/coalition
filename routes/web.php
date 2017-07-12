@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('product/create');
 });
+
+Route::get('product/create', 'ProductController@getCreate');
+Route::post('product/create', 'ProductController@postCreate');
